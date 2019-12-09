@@ -1,28 +1,16 @@
 import React,{ Component } from 'react'
-
+import { connect } from 'react-redux'
+import { fetchinfo } from '../Actions/infoAction'
 class Info extends Component
 {
-    constructor(props)
-    {
-      super(props)
-      this.state ={
-          info:[]
-      }  
-   
-     
-    }
-   UNSAFE_componentWillMount()
-    {
-        fetch('http://dummy.restapiexample.com/api/v1/employees')
-        .then(res => res.json())
-        .then(data => this.setState({info: data}))
-        
-    }
-          
+     componentWillMount()
+     {
+         this.props.fetchinfo();
+     }
 
     render()
     {
-        const infoList = this.state.info.map( detail => (
+        const infoList = this.props.info.map( detail => (
            
             <div key={detail.id}>
             <h1>{detail.employee_name}</h1>
@@ -47,4 +35,10 @@ class Info extends Component
     }
 
 }
-export default Info;
+const mapstateToprops = state => (
+    {
+        info:state.info.details
+    }
+)
+
+export default connect(mapstateToprops, { fetchinfo })(Info);
