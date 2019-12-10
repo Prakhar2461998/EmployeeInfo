@@ -1,11 +1,11 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchinfo } from '../Actions/infoAction'
+import { fetchInfo } from '../actions/infoAction'
 class Info extends Component
 {
-     componentWillMount()
+     UNSAFE_componentWillMount()
      {
-         this.props.fetchinfo();
+         this.props.fetchInfo();
      }
 
     render()
@@ -41,4 +41,4 @@ const mapstateToprops = state => (
     }
 )
 
-export default connect(mapstateToprops, { fetchinfo })(Info);
+export default connect(mapstateToprops, { fetchInfo })(Info);

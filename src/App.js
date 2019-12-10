@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Info from './components/Info'
+import Info from './components/Info';
 import  { Provider } from 'react-redux';
 
 import store from './store';
@@ -19,7 +19,7 @@ class App extends Component {
        <Info />
 
       </div>
-      </Provider>
+      </Provider>                                                                                                                                                                                                                                                                   
     );
   }
 }

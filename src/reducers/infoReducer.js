@@ -1,4 +1,4 @@
-import { FETCH_INFO } from '../Actions/types';
+import { FETCH_INFO } from '../actions/types';
 
 const initialState=
 {
@@ -10,7 +10,7 @@ export default function(state = initialState , action)
     switch(action.type)
     {
         case FETCH_INFO:
-            
+            console.log("reducer");
             return {
                 ...state,
                 details:action.payload
