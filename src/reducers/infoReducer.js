@@ -10,7 +10,7 @@ export default function(state = initialState , action)
     switch(action.type)
     {
         case FETCH_INFO:
-            console.log("reducer");
+          
             return {
                 ...state,
                 details:action.payload
