@@ -1,4 +1,4 @@
-import { FETCH_INFO } from '../actions/types';
+import { FETCH_INFO, NEW_INFO } from '../actions/types';
 
 const initialState=
 {
@@ -15,6 +15,12 @@ export default function(state = initialState , action)
                 ...state,
                 details:action.payload
             }
+
+            case NEW_INFO:
+                return{
+                    ...state,
+                    detail:action.payload
+                }
             default:
                 return state;
                     

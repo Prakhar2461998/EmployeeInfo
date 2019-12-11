@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { createInfo } from '../actions/infoAction'
 
  class InfoForm extends Component {
            
@@ -28,15 +31,8 @@ import React, { Component } from 'react'
              salary:this.state.salary,
              age:this.state.age
          };
-          fetch('http://dummy.restapiexample.com/api/v1/create',{
-                       method:'POST',
-                       headers:{
-                           'content-type':'application/json'
-                       },
-                       body: JSON.stringify(detail)
-                       })
-                       .then(res =>res.json())
-                       .then(data => console.log(data))
+        //call action
+        this.props.createInfo(detail);
                     }
 
     render() {
@@ -59,4 +55,11 @@ import React, { Component } from 'react'
     }
 }
 
-export default InfoForm;
+
+InfoForm.propTypes={
+    createInfo: PropTypes.func.isRequired
+};
+
+
+
+export default connect(null, { createInfo })(InfoForm);

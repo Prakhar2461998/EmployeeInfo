@@ -1,12 +1,20 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchInfo } from '../actions/infoAction'
+import PropTypes from 'prop-types';
 
 class Info extends Component
 {
      UNSAFE_componentWillMount()
      {
          this.props.fetchInfo();
+     }
+
+     componentWillReceiveProps(nextProps)
+     {
+         if(nextProps.newInfo){
+             this.props.info.unshift(nextProps.newInfo)
+         }
      }
 
     render()
@@ -48,9 +56,19 @@ class Info extends Component
     }
 
 }
+Info.prototypes ={
+
+    fetchInfo:PropTypes.func.isRequired,
+    info:PropTypes.array.isRequired,
+    newInfo: PropTypes.object
+}
+
+
+
 const mapstateToprops = state => (
     {
-        info:state.info.details
+        info:state.info.details,
+        newInfo:state.info.detail
     }
 )
 
