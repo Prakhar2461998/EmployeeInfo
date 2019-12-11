@@ -1,6 +1,7 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchInfo } from '../actions/infoAction'
+
 class Info extends Component
 {
      UNSAFE_componentWillMount()
@@ -12,20 +13,32 @@ class Info extends Component
     {
         const infoList = this.props.info.map( detail => (
            
+            
             <div key={detail.id}>
-            <h1>{detail.employee_name}</h1>
-            <h2> {detail.employee_salary}</h2>
-            <h3> {detail.employee_age} </h3>
+            <br />
+         
+            <h2>NAME : {detail.employee_name}</h2>
+           
+           
+         <p>Salary: {detail.employee_salary}</p>
+         
+            <p>Age: {detail.employee_age} </p>
+
+            <button>EDIT</button>
+            <button>DELETE</button>
+            <button>INFO</button>
             </div>
 
         ));
+            
         return(
 
         <div>
          
-        <p>Fetch the information</p>
+        
         <form >
-        <button type="Submit" >Click</button>
+        
+        <h1>DETAILS OF EMPLOYEE</h1> 
        {infoList}
         </form>
 

@@ -5,6 +5,8 @@ import Info from './components/Info';
 import  { Provider } from 'react-redux';
 
 import store from './store';
+import InfoForm from './components/InfoForm';
+
 
 class App extends Component {
   render() {
@@ -15,7 +17,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Employee Details</h2>
         </div>
-       
+       <InfoForm />
        <Info />
 
       </div>
